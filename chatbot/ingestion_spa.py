@@ -27,7 +27,7 @@ import numpy as np
 from dotenv import load_dotenv
 
 from .cache_layer import get_cache_manager
-from ..vector_store import CohereEmbedder, VectorStoreManager
+from .vector_store import CohereEmbedder, VectorStoreManager
 
 load_dotenv(Path(__file__).resolve().parent.parent / ".env", override=False)
 
