@@ -28,7 +28,8 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 # Allow running as __main__
-sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
 load_dotenv(Path(__file__).resolve().parent.parent / ".env", override=False)
 
 from ..vector_store import CohereEmbedder, VectorStoreManager
