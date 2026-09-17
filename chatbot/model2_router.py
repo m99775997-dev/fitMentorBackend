@@ -18,8 +18,8 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field, field_validator
 
 from .cache_layer import get_cache_manager
-from supabase import fetch_table_first_by_id
-from supabase import (
+from .supabase import fetch_table_first_by_id
+from .supabase import (
     fetch_workout_routines,
     fetch_workout_routine,
     insert_workout_routine,
