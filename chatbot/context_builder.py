@@ -11,8 +11,8 @@ import logging
 from dataclasses import dataclass
 from typing import Optional
 
-from cache_layer import USER_CONTEXT_TTL, _cache_key_user_context, get_cache_manager
-from supabase_client import fetch_all_user_tables
+from .cache_layer import USER_CONTEXT_TTL, _cache_key_user_context, get_cache_manager
+from .supabase_client import fetch_all_user_tables
 
 logger = logging.getLogger(__name__)
 

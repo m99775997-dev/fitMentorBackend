@@ -12,9 +12,9 @@ from typing import Optional
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-from context_builder import build_user_context
-from engine import get_rag_engine
-from router import RetrievalMode, RoutingDecision
+from .context_builder import build_user_context
+from .engine import get_rag_engine
+from .router import RetrievalMode, RoutingDecision
 
 logger = logging.getLogger(__name__)
 router = APIRouter()

@@ -3,8 +3,8 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-from router import route_query
-from engine import get_rag_engine
+from .router import route_query
+from .engine import get_rag_engine
 
 
 async def main():

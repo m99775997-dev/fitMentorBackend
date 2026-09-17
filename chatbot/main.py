@@ -14,15 +14,15 @@ from fastapi.responses import FileResponse
 from pathlib import Path
 from dotenv import load_dotenv
 
-from chat import router as chat_router
-from user import router as user_router
-from recommendation import router as recommendation_router
-from model2_router import router as model2_router
-from vector_store import VectorStoreManager
-from engine import get_rag_engine
-from ingestion import sync_site_knowledge
-from ingestion_spa import routes_from_env, sync_spa_routes
-from supabase_client import close_http_client
+from .chat import router as chat_router
+from .user import router as user_router
+from .recommendation import router as recommendation_router
+from .model2_router import router as model2_router
+from .vector_store import VectorStoreManager
+from .engine import get_rag_engine
+from .ingestion import sync_site_knowledge
+from .ingestion_spa import routes_from_env, sync_spa_routes
+from .supabase_client import close_http_client
 
 load_dotenv(Path(__file__).resolve().parent.parent / ".env", override=False)
 

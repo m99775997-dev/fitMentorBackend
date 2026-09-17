@@ -31,7 +31,7 @@ from dotenv import load_dotenv
 sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 load_dotenv(Path(__file__).resolve().parent.parent / ".env", override=False)
 
-from vector_store import CohereEmbedder, VectorStoreManager
+from ..vector_store import CohereEmbedder, VectorStoreManager
 
 logger = logging.getLogger(__name__)
 SITE_SYNC_MANIFEST = Path(__file__).resolve().parent / "site_sync_manifest.json"

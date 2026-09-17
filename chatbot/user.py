@@ -8,8 +8,8 @@ from typing import Optional
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-from context_builder import build_user_context
-from supabase_client import (
+from .context_builder import build_user_context
+from .supabase_client import (
     fetch_coach_plan,
     fetch_meal_plans,
     fetch_meal_items,

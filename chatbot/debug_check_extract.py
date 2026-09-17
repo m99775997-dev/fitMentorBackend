@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-import context_builder as cb
+from . import context_builder as cb
 
 examples = [
     "أنا مريض سكري من 2018 وأستخدم metformin 500mg مرتين يوميًا وأحتاج low carb",

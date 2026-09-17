@@ -12,7 +12,7 @@ from typing import Any
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
-from supabase_client import SUPABASE_URL, get_http_client, headers
+from .supabase_client import SUPABASE_URL, get_http_client, headers
 
 logger = logging.getLogger(__name__)
 router = APIRouter()

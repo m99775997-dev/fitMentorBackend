@@ -17,7 +17,7 @@ import json
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field, field_validator
 
-from cache_layer import get_cache_manager
+from .cache_layer import get_cache_manager
 from supabase import fetch_table_first_by_id
 from supabase import (
     fetch_workout_routines,

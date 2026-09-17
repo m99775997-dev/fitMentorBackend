@@ -16,7 +16,7 @@ import cohere
 import faiss
 import numpy as np
 
-from cache_layer import get_cache_manager, _cache_key_embedding, _cache_key_vector_search, EMBEDDING_CACHE_TTL, VECTOR_SEARCH_TTL
+from .cache_layer import get_cache_manager, _cache_key_embedding, _cache_key_vector_search, EMBEDDING_CACHE_TTL, VECTOR_SEARCH_TTL
 
 logger = logging.getLogger(__name__)
 

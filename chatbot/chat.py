@@ -15,10 +15,16 @@ from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
-from context_builder import build_user_context
-from engine import get_rag_engine
-from router import RetrievalMode, route_query
-from supabase import SUPABASE_URL, fetch_table, supabase_delete, supabase_patch, supabase_post
+from .context_builder import build_user_context
+from .engine import get_rag_engine
+from .router import RetrievalMode, route_query
+from .supabase import (
+    SUPABASE_URL,
+    fetch_table,
+    supabase_delete,
+    supabase_patch,
+    supabase_post,
+)
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -281,13 +287,13 @@ async def chat(req: ChatRequest):
 
         # Fallback 1: no user_id provided
         if (not structured_ctx) and req.user_profile:
-            from context_builder import build_context_from_profile
+            from .context_builder import build_context_from_profile
 
             structured_ctx = await build_context_from_profile(req.user_profile, user_id=req.user_id)
 
         # Fallback 2: user_id exists but Supabase has no rows yet
         if structured_ctx and (not structured_ctx.has_data) and req.user_profile:
-            from context_builder import build_context_from_profile
+            from .context_builder import build_context_from_profile
 
             structured_ctx = await build_context_from_profile(req.user_profile, user_id=req.user_id)
 

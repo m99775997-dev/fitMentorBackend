@@ -7,7 +7,7 @@ CHATBOT_DIR = Path(__file__).resolve().parent
 if str(CHATBOT_DIR) not in sys.path:
     sys.path.insert(0, str(CHATBOT_DIR))
 
-from context_builder import _extract_memory_facts, summarize_persistent_memory_from_conversations
+from .context_builder import _extract_memory_facts, summarize_persistent_memory_from_conversations
 
 
 def test_extract_memory_facts_captures_medical_and_diet_details():
