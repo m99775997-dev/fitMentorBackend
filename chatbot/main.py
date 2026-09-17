@@ -110,28 +110,29 @@ cors_origins = [
     "https://fit-mentor-nine.vercel.app",
 ]
 
-# لو في env override
 env_origins = os.getenv("CORS_ORIGINS")
 
 if env_origins:
-   
-    parsed = [o.strip().strip('"').strip("'") for o in env_origins.split(",") if o.strip()]
-    cors_origins = parsed or cors_origins
+    parsed = [
+        o.strip().strip('"').strip("'")
+        for o in env_origins.split(",")
+        if o.strip()
+    ]
+    cors_origins.extend(parsed)
 
 allow_any_origin = "*" in cors_origins
 
-# Always trust localhost/127.0.0.1 dev origins regardless of port
 localhost_origin_regex = r"https?://(localhost|127\.0\.0\.1)(:\d+)?$"
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"] if allow_any_origin else cors_origins,
     allow_origin_regex=localhost_origin_regex,
-    # CORS spec: cannot combine allow_credentials=True with wildcard origin
     allow_credentials=not allow_any_origin,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 logger.info(
     "CORS configured: origins=%s any_origin=%s origin_regex=%s credentials=%s",
